@@ -99,7 +99,7 @@
     </section>
 
     <!-- Filters & Search -->
-    <section class="sticky-search-bar py-6 px-6 bg-white/95 backdrop-blur-sm sticky top-[80px] z-40 shadow-sm">
+    <section class="sticky-search-bar py-6 px-6 bg-white/95 backdrop-blur-sm sticky top-[72px] z-40 shadow-sm -mt-px border-t border-gray-100/50">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-center gap-4">
                 <div class="flex items-center space-x-4 flex-wrap justify-center">
@@ -389,7 +389,7 @@
                 const headerBottom = pageHeader.offsetTop + pageHeader.offsetHeight;
                 
                 function updateStickyBar() {
-                    if (window.scrollY >= headerBottom - 80) {
+                    if (window.scrollY >= headerBottom - 72) {
                         stickySearchBar.classList.add('shadow-lg');
                         stickySearchBar.classList.remove('shadow-sm');
                     } else {
@@ -405,7 +405,12 @@
     </script>
     <style>
         .sticky-search-bar {
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .sticky-search-bar.shadow-lg {
+            border-top-color: rgba(229, 231, 235, 0.8);
+            background-color: rgba(255, 255, 255, 0.98);
         }
     </style>
 </body>
