@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Bloom & Blossom - Premium Flower Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition">
+                    <i class="fas fa-seedling text-3xl text-pink-500"></i>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Bloom & Blossom</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <div class="relative group">
+                        <a href="#" class="text-pink-600 font-semibold hover:text-purple-600 transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-40 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-100">
+                            <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition rounded-t-lg">
+                                <i class="fas fa-home mr-2"></i>Home1
+                            </a>
+                            <a href="home2.html" class="block px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition rounded-b-lg">
+                                <i class="fas fa-home mr-2"></i>Home2
+                            </a>
+                        </div>
+                    </div>
+                    <a href="shop.html" class="text-gray-700 hover:text-pink-600 transition">Shop</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-pink-600 transition">Gallery</a>
+                    <a href="services.html" class="text-gray-700 hover:text-pink-600 transition">Services</a>
+                    <a href="about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-pink-600 transition">Contact</a>
+                    <a href="admin.html" class="text-gray-700 hover:text-pink-600 transition">Admin</a>
+                </div>
+                <div class="flex items-center space-x-3 md:space-x-4">
+                    <a href="login.html" class="hidden md:block px-4 py-2 text-pink-600 font-semibold hover:text-purple-600 transition rounded-full hover:bg-pink-50">
+                        Login
+                    </a>
+                    <a href="register.html" class="hidden md:block px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition">
+                        Register
+                    </a>
+                    <a href="cart.html" class="relative">
+                        <i class="fas fa-shopping-cart text-xl text-gray-700 hover:text-pink-600 cursor-pointer transition"></i>
+                        <span class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                    <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t" id="mobileMenu">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <div>
+                    <button class="w-full flex items-center justify-between text-pink-600 font-semibold" id="mobileHomeBtn">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-down" id="mobileHomeIcon"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="mobileHomeDropdown">
+                        <a href="index.html" class="block text-gray-700 hover:text-pink-600">
+                            <i class="fas fa-home mr-2"></i>Home1
+                        </a>
+                        <a href="home2.html" class="block text-gray-700 hover:text-pink-600">
+                            <i class="fas fa-home mr-2"></i>Home2
+                        </a>
+                    </div>
+                </div>
+                <a href="shop.html" class="block text-gray-700 hover:text-pink-600">Shop</a>
+                <a href="gallery.html" class="block text-gray-700 hover:text-pink-600">Gallery</a>
+                <a href="services.html" class="block text-gray-700 hover:text-pink-600">Services</a>
+                <a href="about.html" class="block text-gray-700 hover:text-pink-600">About</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-pink-600">Contact</a>
+                <a href="admin.html" class="block text-gray-700 hover:text-pink-600">Admin</a>
+                <div class="pt-4 border-t border-gray-200 mt-4 space-y-2">
+                    <a href="login.html" class="block px-4 py-2 text-center text-pink-600 font-semibold border-2 border-pink-600 rounded-full hover:bg-pink-50 transition">
+                        Login
+                    </a>
+                    <a href="register.html" class="block px-4 py-2 text-center bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition">
+                        Register
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 animate-fade-in text-center">
+                    <div class="inline-block px-4 py-2 bg-pink-100 rounded-full text-pink-600 font-semibold">
+                        <i class="fas fa-heart mr-2"></i>Fresh Flowers Daily
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                        <span class="bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 bg-clip-text text-transparent">
+                            Bloom Your
+                        </span>
+                        <br>
+                        <span class="text-gray-800">Special Moments</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Bringing beauty and joy to your special moments with fresh, hand-picked flowers.
+                    </p>
+                    <div class="flex flex-col md:flex-row flex-wrap gap-4 justify-center items-center">
+                        <a href="shop.html" class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition transform text-center">
+                            Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="gallery.html" class="w-full md:w-auto px-8 py-4 bg-white text-pink-600 rounded-full font-semibold border-2 border-pink-500 hover:bg-pink-50 transition text-center">
+                            View Gallery
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 rounded-3xl transform rotate-6 opacity-20"></div>
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-8 transform -rotate-2 hover:rotate-0 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&h=800&fit=crop" alt="Beautiful flower arrangement" class="rounded-2xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-20 px-6 bg-white/50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Shop by Category</h2>
+                <p class="text-gray-600 text-lg">Find the perfect flowers for any occasion</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/90 to-rose-600/90 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&h=400&fit=crop" alt="Wedding Flowers" class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-white p-6">
+                        <i class="fas fa-heart text-5xl mb-4 transform group-hover:scale-125 transition"></i>
+                        <h3 class="text-3xl font-bold mb-2">Wedding</h3>
+                        <p class="text-center opacity-90">Elegant arrangements for your special day</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/90 to-indigo-600/90 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=600&h=400&fit=crop" alt="Birthday Flowers" class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-white p-6">
+                        <i class="fas fa-birthday-cake text-5xl mb-4 transform group-hover:scale-125 transition"></i>
+                        <h3 class="text-3xl font-bold mb-2">Birthday</h3>
+                        <p class="text-center opacity-90">Bright and cheerful birthday bouquets</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/90 to-orange-600/90 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=600&h=400&fit=crop" alt="Sympathy Flowers" class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-white p-6">
+                        <i class="fas fa-dove text-5xl mb-4 transform group-hover:scale-125 transition"></i>
+                        <h3 class="text-3xl font-bold mb-2">Sympathy</h3>
+                        <p class="text-center opacity-90">Thoughtful arrangements to express condolences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Arrangements</h2>
+                <p class="text-gray-600 text-lg">Our most popular and beautiful creations</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/35279295/pexels-photo-35279295.jpeg" alt="Rose Bouquet" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">New</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Elegant Rose </h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Classic red roses arranged beautifully</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-pink-600">$49.99</span>
+                            <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=400&h=400&fit=crop" alt="Mixed Bouquet" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Spring Mix Bouquet</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Colorful mix of seasonal flowers</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-pink-600">$39.99</span>
+                            <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&h=400&fit=crop" alt="Tulip Arrangement" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Tulip Paradise</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Vibrant tulips in a modern arrangement</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-pink-600">$44.99</span>
+                            <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition group flex flex-col">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=400&h=400&fit=crop" alt="Lily Bouquet" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Lily Elegance</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Pure white lilies for special occasions</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-2xl font-bold text-pink-600">$54.99</span>
+                            <button class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 px-6 bg-gradient-to-r from-pink-500 to-purple-600">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 text-white justify-items-center">
+                <div class="text-center max-w-xs">
+                    <div class="inline-block p-6 bg-white/20 rounded-full mb-4 backdrop-blur-sm">
+                        <i class="fas fa-truck text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Free Delivery</h3>
+                    <p class="opacity-90">On orders over $50 within city limits</p>
+                </div>
+                <div class="text-center max-w-xs">
+                    <div class="inline-block p-6 bg-white/20 rounded-full mb-4 backdrop-blur-sm">
+                        <i class="fas fa-leaf text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Fresh Daily</h3>
+                    <p class="opacity-90">Hand-picked flowers delivered fresh every day</p>
+                </div>
+                <div class="text-center max-w-xs">
+                    <div class="inline-block p-6 bg-white/20 rounded-full mb-4 backdrop-blur-sm">
+                        <i class="fas fa-heart text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Expert Arrangers</h3>
+                    <p class="opacity-90">Professional florists with years of experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-seedling text-3xl text-pink-500"></i>
+                        <span class="text-2xl font-bold">Bloom & Blossom</span>
+                    </div>
+                    <p class="text-gray-400">Bringing beauty and joy to your special moments with fresh, hand-picked flowers.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-pink-500 transition">Home</a></li>
+                        <li><a href="shop.html" class="hover:text-pink-500 transition">Shop</a></li>
+                        <li><a href="gallery.html" class="hover:text-pink-500 transition">Gallery</a></li>
+                        <li><a href="about.html" class="hover:text-pink-500 transition">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="contact.html" class="hover:text-pink-500 transition">Contact Us</a></li>
+                        <li><a href="services.html" class="hover:text-pink-500 transition">Our Services</a></li>
+                        <li><a href="#" class="hover:text-pink-500 transition">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-pink-500 transition">Returns</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Bloom & Blossom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile Home Dropdown Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileHomeBtn = document.getElementById('mobileHomeBtn');
+            const mobileHomeDropdown = document.getElementById('mobileHomeDropdown');
+            const mobileHomeIcon = document.getElementById('mobileHomeIcon');
+            
+            if (mobileHomeBtn && mobileHomeDropdown) {
+                mobileHomeBtn.addEventListener('click', function() {
+                    mobileHomeDropdown.classList.toggle('hidden');
+                    mobileHomeIcon.classList.toggle('fa-chevron-down');
+                    mobileHomeIcon.classList.toggle('fa-chevron-up');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

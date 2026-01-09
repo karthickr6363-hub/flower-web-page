@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Admin Dashboard - Bloom & Blossom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 overflow-x-hidden">
+    <!-- Admin Navigation -->
+    <nav class="fixed w-full z-50 bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2 sm:space-x-4 min-w-0 flex-shrink">
+                    <a href="home2.html" class="flex items-center space-x-1 sm:space-x-2 cursor-pointer hover:opacity-80 transition min-w-0">
+                        <i class="fas fa-seedling text-xl sm:text-2xl lg:text-3xl text-pink-500 flex-shrink-0"></i>
+                        <span class="text-base sm:text-xl lg:text-2xl font-bold whitespace-nowrap">Bloom & Blossom</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button class="lg:hidden text-white hover:opacity-80 transition" id="sidebarToggle">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div class="relative hidden lg:block">
+                        <button class="flex items-center space-x-2 hover:opacity-80 transition">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">5</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div class="hidden md:block">
+                            <p class="text-sm font-semibold">Admin User</p>
+                            <p class="text-xs text-gray-400">Administrator</p>
+                        </div>
+                        <a href="home2.html" class="ml-4 hover:opacity-80 transition cursor-pointer" title="Logout">
+                            <i class="fas fa-sign-out-alt text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex pt-16 overflow-x-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-gray-800 text-white shadow-xl overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-30">
+            <nav class="p-6 space-y-2">
+                <a href="#dashboard" class="flex items-center space-x-3 px-4 py-3 bg-pink-600 rounded-lg hover:bg-pink-700 transition">
+                    <i class="fas fa-chart-line text-xl"></i>
+                    <span class="font-semibold">Dashboard</span>
+                </a>
+                <a href="#orders" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span class="font-semibold">Orders</span>
+                    <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">12</span>
+                </a>
+                <a href="#products" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-box text-xl"></i>
+                    <span class="font-semibold">Products</span>
+                </a>
+                <a href="#customers" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="font-semibold">Customers</span>
+                </a>
+                <a href="#categories" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-tags text-xl"></i>
+                    <span class="font-semibold">Categories</span>
+                </a>
+                <a href="#analytics" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-chart-bar text-xl"></i>
+                    <span class="font-semibold">Analytics</span>
+                </a>
+                <a href="#settings" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="font-semibold">Settings</span>
+                </a>
+                <div class="pt-6 border-t border-gray-700 mt-6">
+                    <a href="home2.html" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition">
+                        <i class="fas fa-home text-xl"></i>
+                        <span class="font-semibold">Back to Website</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Sidebar Overlay (Mobile) -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-20 lg:hidden hidden"></div>
+
+        <!-- Dashboard Content -->
+        <main class="lg:ml-64 flex-1 p-4 sm:p-6 lg:p-8 min-w-0 overflow-x-hidden">
+            <!-- Page Header -->
+            <div class="mb-6 sm:mb-8">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Dashboard Overview</h1>
+                <p class="text-sm sm:text-base text-gray-600">Welcome back! Here's what's happening with your store today.</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                <!-- Total Revenue -->
+                <div class="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-6 text-white shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-dollar-sign text-2xl"></i>
+                        </div>
+                        <span class="text-sm bg-white/20 px-3 py-1 rounded-full">+12.5%</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">$24,580</h3>
+                    <p class="text-pink-100 text-sm">Total Revenue</p>
+                </div>
+
+                <!-- Total Orders -->
+                <div class="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl p-6 text-white shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-2xl"></i>
+                        </div>
+                        <span class="text-sm bg-white/20 px-3 py-1 rounded-full">+8.2%</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">1,247</h3>
+                    <p class="text-purple-100 text-sm">Total Orders</p>
+                </div>
+
+                <!-- Total Customers -->
+                <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 text-white shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <span class="text-sm bg-white/20 px-3 py-1 rounded-full">+15.3%</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">5,432</h3>
+                    <p class="text-emerald-100 text-sm">Total Customers</p>
+                </div>
+
+                <!-- Pending Orders -->
+                <div class="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-6 text-white shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-clock text-2xl"></i>
+                        </div>
+                        <span class="text-sm bg-white/20 px-3 py-1 rounded-full">12</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Pending</h3>
+                    <p class="text-amber-100 text-sm">Orders Awaiting</p>
+                </div>
+            </div>
+
+            <!-- Charts and Tables Section -->
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <!-- Revenue Chart -->
+                <div class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Revenue Overview</h2>
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-pink-500">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Last 3 Months</option>
+                            <option>Last Year</option>
+                        </select>
+                    </div>
+                    <div class="h-64 flex items-end justify-between space-x-2">
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-pink-500 to-pink-300 rounded-t-lg mb-2" style="height: 60%"></div>
+                            <span class="text-xs text-gray-600">Mon</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-purple-500 to-purple-300 rounded-t-lg mb-2" style="height: 75%"></div>
+                            <span class="text-xs text-gray-600">Tue</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-pink-500 to-pink-300 rounded-t-lg mb-2" style="height: 45%"></div>
+                            <span class="text-xs text-gray-600">Wed</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-purple-500 to-purple-300 rounded-t-lg mb-2" style="height: 90%"></div>
+                            <span class="text-xs text-gray-600">Thu</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-pink-500 to-pink-300 rounded-t-lg mb-2" style="height: 55%"></div>
+                            <span class="text-xs text-gray-600">Fri</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-purple-500 to-purple-300 rounded-t-lg mb-2" style="height: 80%"></div>
+                            <span class="text-xs text-gray-600">Sat</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full bg-gradient-to-t from-pink-500 to-pink-300 rounded-t-lg mb-2" style="height: 70%"></div>
+                            <span class="text-xs text-gray-600">Sun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Recent Activity</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shopping-cart text-pink-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-gray-900">New Order #1247</p>
+                                <p class="text-xs text-gray-600">2 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user-plus text-purple-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-gray-900">New Customer Registered</p>
+                                <p class="text-xs text-gray-600">15 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check-circle text-emerald-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-gray-900">Order #1245 Completed</p>
+                                <p class="text-xs text-gray-600">1 hour ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-box text-amber-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-gray-900">Product Stock Low</p>
+                                <p class="text-xs text-gray-600">2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-star text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold text-gray-900">New Review Received</p>
+                                <p class="text-xs text-gray-600">3 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders Table -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Recent Orders</h2>
+                    <a href="#orders" class="text-pink-600 hover:text-pink-700 font-semibold flex items-center">
+                        View All <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Order ID</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Customer</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Product</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Amount</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Status</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Date</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4">
+                                    <span class="font-semibold text-gray-900">#1247</span>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                            SM
+                                        </div>
+                                        <span class="text-gray-900">Sarah Mitchell</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-gray-700">Rose Bouquet</td>
+                                <td class="py-4 px-4 font-semibold text-gray-900">$89.99</td>
+                                <td class="py-4 px-4">
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">Pending</span>
+                                </td>
+                                <td class="py-4 px-4 text-gray-600 text-sm">2025-01-15</td>
+                                <td class="py-4 px-4">
+                                    <button class="text-pink-600 hover:text-pink-700 transition">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4">
+                                    <span class="font-semibold text-gray-900">#1246</span>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                            MC
+                                        </div>
+                                        <span class="text-gray-900">Michael Chen</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-gray-700">Tulip Arrangement</td>
+                                <td class="py-4 px-4 font-semibold text-gray-900">$64.99</td>
+                                <td class="py-4 px-4">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Completed</span>
+                                </td>
+                                <td class="py-4 px-4 text-gray-600 text-sm">2025-01-15</td>
+                                <td class="py-4 px-4">
+                                    <button class="text-pink-600 hover:text-pink-700 transition">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4">
+                                    <span class="font-semibold text-gray-900">#1245</span>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                            ER
+                                        </div>
+                                        <span class="text-gray-900">Emily Rodriguez</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-gray-700">Peony Dreams</td>
+                                <td class="py-4 px-4 font-semibold text-gray-900">$79.99</td>
+                                <td class="py-4 px-4">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Completed</span>
+                                </td>
+                                <td class="py-4 px-4 text-gray-600 text-sm">2025-01-14</td>
+                                <td class="py-4 px-4">
+                                    <button class="text-pink-600 hover:text-pink-700 transition">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4">
+                                    <span class="font-semibold text-gray-900">#1244</span>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                            JD
+                                        </div>
+                                        <span class="text-gray-900">John Davis</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-gray-700">Sunflower Bundle</td>
+                                <td class="py-4 px-4 font-semibold text-gray-900">$54.99</td>
+                                <td class="py-4 px-4">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">Processing</span>
+                                </td>
+                                <td class="py-4 px-4 text-gray-600 text-sm">2025-01-14</td>
+                                <td class="py-4 px-4">
+                                    <button class="text-pink-600 hover:text-pink-700 transition">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4">
+                                    <span class="font-semibold text-gray-900">#1243</span>
+                                </td>
+                                <td class="py-4 px-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                            LW
+                                        </div>
+                                        <span class="text-gray-900">Lisa Wilson</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-gray-700">Orchid Display</td>
+                                <td class="py-4 px-4 font-semibold text-gray-900">$94.99</td>
+                                <td class="py-4 px-4">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Completed</span>
+                                </td>
+                                <td class="py-4 px-4 text-gray-600 text-sm">2025-01-13</td>
+                                <td class="py-4 px-4">
+                                    <button class="text-pink-600 hover:text-pink-700 transition">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top Products -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Top Selling Products</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-xl overflow-hidden flex-shrink-0">
+                                <img src="https://images.pexels.com/photos/35279295/pexels-photo-35279295.jpeg" alt="Product" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Elegant Rose Bouquet</h4>
+                                <p class="text-sm text-gray-600">156 sales</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-900">$49.99</p>
+                                <p class="text-xs text-green-600">+12%</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl overflow-hidden flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=200&h=200&fit=crop" alt="Product" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Tulip Elegance</h4>
+                                <p class="text-sm text-gray-600">142 sales</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-900">$44.99</p>
+                                <p class="text-xs text-green-600">+8%</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl overflow-hidden flex-shrink-0">
+                                <img src="https://images.pexels.com/photos/30307359/pexels-photo-30307359.jpeg" alt="Product" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Peony Dreams</h4>
+                                <p class="text-sm text-gray-600">128 sales</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-900">$59.99</p>
+                                <p class="text-xs text-green-600">+15%</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl overflow-hidden flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=200&h=200&fit=crop" alt="Product" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Sunny Sunflowers</h4>
+                                <p class="text-sm text-gray-600">98 sales</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-gray-900">$39.99</p>
+                                <p class="text-xs text-green-600">+5%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick Actions</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#products" class="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl hover:shadow-lg transition group">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                                <i class="fas fa-plus text-white text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-gray-900 text-sm">Add Product</span>
+                        </a>
+                        <a href="#orders" class="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl hover:shadow-lg transition group">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                                <i class="fas fa-shopping-bag text-white text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-gray-900 text-sm">View Orders</span>
+                        </a>
+                        <a href="#customers" class="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl hover:shadow-lg transition group">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-gray-900 text-sm">Manage Customers</span>
+                        </a>
+                        <a href="#analytics" class="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl hover:shadow-lg transition group">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                                <i class="fas fa-chart-bar text-white text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-gray-900 text-sm">View Reports</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        /* Hide scrollbar for menu bar on mobile */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script>
+        // Mobile sidebar toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebarToggle && sidebar && sidebarOverlay) {
+                // Toggle sidebar
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('-translate-x-full');
+                    sidebarOverlay.classList.toggle('hidden');
+                });
+                
+                // Close sidebar when clicking overlay
+                sidebarOverlay.addEventListener('click', function() {
+                    sidebar.classList.add('-translate-x-full');
+                    sidebarOverlay.classList.add('hidden');
+                });
+                
+                // Close sidebar on window resize (if going from mobile to desktop)
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024) {
+                        sidebar.classList.remove('-translate-x-full');
+                        sidebarOverlay.classList.add('hidden');
+                    } else {
+                        sidebar.classList.add('-translate-x-full');
+                        sidebarOverlay.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Shopping Cart - Bloom & Blossom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition">
+                    <i class="fas fa-seedling text-3xl text-pink-500"></i>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Bloom & Blossom</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-pink-600 transition flex items-center">
+                            Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-40 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-100">
+                            <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition rounded-t-lg">
+                                <i class="fas fa-home mr-2"></i>Home1
+                            </a>
+                            <a href="home2.html" class="block px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition rounded-b-lg">
+                                <i class="fas fa-home mr-2"></i>Home2
+                            </a>
+                        </div>
+                    </div>
+                    <a href="shop.html" class="text-gray-700 hover:text-pink-600 transition">Shop</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-pink-600 transition">Gallery</a>
+                    <a href="services.html" class="text-gray-700 hover:text-pink-600 transition">Services</a>
+                    <a href="about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-pink-600 transition">Contact</a>
+                    <a href="admin.html" class="text-gray-700 hover:text-pink-600 transition">Admin</a>
+                </div>
+                <div class="flex items-center space-x-3 md:space-x-4">
+                    <a href="login.html" class="hidden md:block px-4 py-2 text-pink-600 font-semibold hover:text-purple-600 transition rounded-full hover:bg-pink-50">
+                        Login
+                    </a>
+                    <a href="register.html" class="hidden md:block px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition">
+                        Register
+                    </a>
+                    <a href="cart.html" class="relative">
+                        <i class="fas fa-shopping-cart text-xl text-pink-600 cursor-pointer transition"></i>
+                        <span class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                    <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:hidden bg-white border-t" id="mobileMenu">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <div>
+                    <button class="w-full flex items-center justify-between text-gray-700 hover:text-pink-600" id="mobileHomeBtn">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-down" id="mobileHomeIcon"></i>
+                    </button>
+                    <div class="hidden mt-2 pl-4 space-y-2" id="mobileHomeDropdown">
+                        <a href="index.html" class="block text-gray-700 hover:text-pink-600">
+                            <i class="fas fa-home mr-2"></i>Home1
+                        </a>
+                        <a href="home2.html" class="block text-gray-700 hover:text-pink-600">
+                            <i class="fas fa-home mr-2"></i>Home2
+                        </a>
+                    </div>
+                </div>
+                <a href="shop.html" class="block text-gray-700 hover:text-pink-600">Shop</a>
+                <a href="gallery.html" class="block text-gray-700 hover:text-pink-600">Gallery</a>
+                <a href="services.html" class="block text-gray-700 hover:text-pink-600">Services</a>
+                <a href="about.html" class="block text-gray-700 hover:text-pink-600">About</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-pink-600">Contact</a>
+                <a href="admin.html" class="block text-gray-700 hover:text-pink-600">Admin</a>
+                <div class="pt-4 border-t border-gray-200 mt-4 space-y-2">
+                    <a href="login.html" class="block px-4 py-2 text-center text-pink-600 font-semibold border-2 border-pink-600 rounded-full hover:bg-pink-50 transition">
+                        Login
+                    </a>
+                    <a href="register.html" class="block px-4 py-2 text-center bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition">
+                        Register
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-12 px-4 sm:px-6 overflow-x-hidden">
+        <div class="container mx-auto max-w-7xl">
+            <div class="relative mb-8">
+                <div class="text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
+                        <span class="bg-gradient-to-r from-pink-600 via-rose-600 to-purple-600 bg-clip-text text-transparent">
+                            Shopping Cart
+                        </span>
+                    </h1>
+                    <p class="text-sm sm:text-base text-gray-600">Review your items and proceed to checkout</p>
+                </div>
+                <div class="hidden md:block absolute top-0 right-0">
+                    <a href="shop.html" class="flex items-center text-pink-600 hover:text-purple-600 font-semibold transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="py-8 px-4 sm:px-6 pb-20 overflow-x-hidden">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Cart Items -->
+                <div class="lg:col-span-2 space-y-4">
+                    <!-- Cart Item 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="flex flex-col md:flex-row gap-4 sm:gap-6">
+                            <div class="relative flex-shrink-0 w-full md:w-32 mx-auto md:mx-0">
+                                <img src="https://images.pexels.com/photos/15574738/pexels-photo-15574738.jpeg" alt="Red Rose Bouquet" class="w-full max-w-full md:w-32 h-32 object-cover rounded-xl">
+                                <button class="absolute -top-2 -right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition shadow-lg">
+                                    <i class="fas fa-times text-sm"></i>
+                                </button>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-4">
+                                <div class="flex-1 text-center sm:text-left">
+                                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Classic Red Roses</h3>
+                                    <p class="text-gray-600 text-xs sm:text-sm mb-3">12 premium red roses in elegant arrangement</p>
+                                    <div class="flex items-center justify-center sm:justify-start space-x-4 mb-4">
+                                        <span class="text-xl sm:text-2xl font-bold text-pink-600">$49.99</span>
+                                        <span class="text-xs sm:text-sm text-gray-400 line-through">$59.99</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+                                    <div class="flex items-center border-2 border-gray-200 rounded-lg">
+                                        <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition rounded-l-lg">
+                                            <i class="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <input type="number" value="2" min="1" class="w-14 sm:w-16 text-center py-2 border-0 focus:outline-none focus:ring-0 font-semibold text-sm sm:text-base">
+                                        <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition rounded-r-lg">
+                                            <i class="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                    <div class="text-center sm:text-right">
+                                        <p class="text-xs sm:text-sm text-gray-500 mb-1">Subtotal</p>
+                                        <p class="text-lg sm:text-xl font-bold text-gray-800">$99.98</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="flex flex-col md:flex-row gap-4 sm:gap-6">
+                            <div class="relative flex-shrink-0 w-full md:w-32 mx-auto md:mx-0">
+                                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&h=400&fit=crop" alt="Tulip Elegance" class="w-full max-w-full md:w-32 h-32 object-cover rounded-xl">
+                                <button class="absolute -top-2 -right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition shadow-lg">
+                                    <i class="fas fa-times text-sm"></i>
+                                </button>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-4">
+                                <div class="flex-1 text-center sm:text-left">
+                                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Tulip Elegance</h3>
+                                    <p class="text-gray-600 text-xs sm:text-sm mb-3">Pure white tulips in modern vase</p>
+                                    <div class="flex items-center justify-center sm:justify-start space-x-4 mb-4">
+                                        <span class="text-xl sm:text-2xl font-bold text-pink-600">$44.99</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+                                    <div class="flex items-center border-2 border-gray-200 rounded-lg">
+                                        <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition rounded-l-lg">
+                                            <i class="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <input type="number" value="1" min="1" class="w-14 sm:w-16 text-center py-2 border-0 focus:outline-none focus:ring-0 font-semibold text-sm sm:text-base">
+                                        <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition rounded-r-lg">
+                                            <i class="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                    <div class="text-center sm:text-right">
+                                        <p class="text-xs sm:text-sm text-gray-500 mb-1">Subtotal</p>
+                                        <p class="text-lg sm:text-xl font-bold text-gray-800">$44.99</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <div class="flex flex-col md:flex-row gap-4 sm:gap-6">
+                            <div class="relative flex-shrink-0 w-full md:w-32 mx-auto md:mx-0">
+                                <img src="https://images.pexels.com/photos/15169359/pexels-photo-15169359.jpeg" alt="Peony Dreams" class="w-full max-w-full md:w-32 h-32 object-cover rounded-xl">
+                                <button class="absolute -top-2 -right-2 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition shadow-lg">
+                                    <i class="fas fa-times text-sm"></i>
+                                </button>
+                            </div>
+                            <div class="flex-1 flex flex-col gap-4">
+                                <div class="flex-1 text-center sm:text-left">
+                                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Peony Dreams</h3>
+                                    <p class="text-gray-600 text-xs sm:text-sm mb-3">Soft pink peonies in romantic arrangement</p>
+                                    <div class="flex items-center justify-center sm:justify-start space-x-4 mb-4">
+                                        <span class="text-xl sm:text-2xl font-bold text-pink-600">$59.99</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+                                    <div class="flex items-center border-2 border-gray-200 rounded-lg">
+                                        <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition rounded-l-lg">
+                                            <i class="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <input type="number" value="1" min="1" class="w-14 sm:w-16 text-center py-2 border-0 focus:outline-none focus:ring-0 font-semibold text-sm sm:text-base">
+                                        <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition rounded-r-lg">
+                                            <i class="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                    <div class="text-center sm:text-right">
+                                        <p class="text-xs sm:text-sm text-gray-500 mb-1">Subtotal</p>
+                                        <p class="text-lg sm:text-xl font-bold text-gray-800">$59.99</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue Shopping Button (Mobile) -->
+                    <div class="md:hidden">
+                        <a href="shop.html" class="block w-full px-6 py-3 bg-white rounded-xl shadow-lg text-center text-pink-600 font-semibold hover:bg-pink-50 transition border border-gray-200">
+                            <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 sticky top-24 border border-gray-100 overflow-hidden">
+                        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center">
+                            <i class="fas fa-receipt text-pink-500 mr-3"></i>Order Summary
+                        </h2>
+                        
+                        <div class="space-y-3 sm:space-y-4 mb-6">
+                            <div class="flex justify-between items-center text-gray-600 text-sm sm:text-base min-w-0">
+                                <span class="flex-shrink-0 pr-2">Subtotal (3 items)</span>
+                                <span class="font-semibold flex-shrink-0">$204.96</span>
+                            </div>
+                            <div class="flex justify-between items-center text-gray-600 text-sm sm:text-base min-w-0">
+                                <span class="flex-shrink-0 pr-2">Shipping</span>
+                                <span class="font-semibold text-green-600 flex-shrink-0">Free</span>
+                            </div>
+                            <div class="flex justify-between items-center text-gray-600 text-sm sm:text-base min-w-0">
+                                <span class="flex-shrink-0 pr-2">Tax</span>
+                                <span class="font-semibold flex-shrink-0">$16.40</span>
+                            </div>
+                            <div class="flex justify-between items-center text-gray-600 text-sm sm:text-base min-w-0">
+                                <span class="flex-shrink-0 pr-2">Discount</span>
+                                <span class="font-semibold text-green-600 flex-shrink-0">-$10.00</span>
+                            </div>
+                            <div class="border-t border-gray-200 pt-4 mt-4">
+                                <div class="flex justify-between items-center min-w-0">
+                                    <span class="text-lg sm:text-xl font-bold text-gray-800 flex-shrink-0 pr-2">Total</span>
+                                    <span class="text-xl sm:text-2xl font-bold text-pink-600 flex-shrink-0">$211.36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2 text-center sm:text-left">Promo Code</label>
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="Enter code" class="flex-1 min-w-0 px-3 sm:px-4 py-2.5 text-sm sm:text-base border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-200">
+                                <button class="px-4 sm:px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition text-sm sm:text-base flex-shrink-0">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <button class="w-full px-6 py-3 sm:py-4 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 text-white rounded-xl font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 transform mb-4">
+                            <i class="fas fa-lock mr-2"></i>Proceed to Checkout
+                        </button>
+
+                        <!-- Security Badge -->
+                        <div class="text-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center justify-center space-x-2 text-gray-500 text-sm mb-2">
+                                <i class="fas fa-shield-alt text-green-500"></i>
+                                <span>Secure Checkout</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3">
+                                <i class="fab fa-cc-visa text-2xl text-gray-400"></i>
+                                <i class="fab fa-cc-mastercard text-2xl text-gray-400"></i>
+                                <i class="fab fa-cc-paypal text-2xl text-gray-400"></i>
+                                <i class="fab fa-cc-amex text-2xl text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Help Section -->
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-seedling text-3xl text-pink-500"></i>
+                        <span class="text-2xl font-bold">Bloom & Blossom</span>
+                    </div>
+                    <p class="text-gray-400">Bringing beauty and joy to your special moments with fresh, hand-picked flowers.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-pink-500 transition">Home</a></li>
+                        <li><a href="shop.html" class="hover:text-pink-500 transition">Shop</a></li>
+                        <li><a href="gallery.html" class="hover:text-pink-500 transition">Gallery</a></li>
+                        <li><a href="about.html" class="hover:text-pink-500 transition">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="contact.html" class="hover:text-pink-500 transition">Contact Us</a></li>
+                        <li><a href="services.html" class="hover:text-pink-500 transition">Our Services</a></li>
+                        <li><a href="#" class="hover:text-pink-500 transition">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-pink-500 transition">Returns</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Bloom & Blossom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile Home Dropdown Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileHomeBtn = document.getElementById('mobileHomeBtn');
+            const mobileHomeDropdown = document.getElementById('mobileHomeDropdown');
+            const mobileHomeIcon = document.getElementById('mobileHomeIcon');
+            
+            if (mobileHomeBtn && mobileHomeDropdown) {
+                mobileHomeBtn.addEventListener('click', function() {
+                    mobileHomeDropdown.classList.toggle('hidden');
+                    mobileHomeIcon.classList.toggle('fa-chevron-down');
+                    mobileHomeIcon.classList.toggle('fa-chevron-up');
+                });
+            }
+        });
+    </script>
+    <script>
+        // Cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quantity controls
+            const quantityButtons = document.querySelectorAll('.fa-plus, .fa-minus');
+            quantityButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.closest('.flex').querySelector('input[type="number"]');
+                    let value = parseInt(input.value);
+                    
+                    if (this.classList.contains('fa-plus')) {
+                        value++;
+                    } else if (this.classList.contains('fa-minus') && value > 1) {
+                        value--;
+                    }
+                    
+                    input.value = value;
+                    updateCartTotal();
+                });
+            });
+
+            // Remove item
+            const removeButtons = document.querySelectorAll('.fa-times');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('Are you sure you want to remove this item?')) {
+                        this.closest('.bg-white').remove();
+                        updateCartTotal();
+                    }
+                });
+            });
+
+            // Update cart total
+            function updateCartTotal() {
+                // This would typically recalculate based on quantities
+                console.log('Cart updated');
+            }
+        });
+    </script>
+</body>
+</html>
+

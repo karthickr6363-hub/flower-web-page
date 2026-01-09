@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Register - Bloom & Blossom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen">
+    <!-- Register Section -->
+    <section class="pt-8 pb-8 px-6 min-h-screen flex items-center">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Register Form -->
+                <div class="w-full max-w-md mx-auto order-2 md:order-1">
+                    <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 relative overflow-hidden">
+                        <!-- Decorative Elements -->
+                        <div class="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -ml-20 -mt-20"></div>
+                        <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tr from-pink-100 to-purple-100 rounded-full -mr-16 -mb-16"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="text-center mb-8">
+                                <a href="index.html" class="inline-flex items-center space-x-2 cursor-pointer hover:opacity-80 transition mb-6">
+                                    <i class="fas fa-seedling text-2xl text-pink-500"></i>
+                                    <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Bloom & Blossom</span>
+                                </a> <br>
+                                <div class="inline-block p-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl mb-4">
+                                    <i class="fas fa-user-plus text-3xl text-white"></i>
+                                </div>
+                                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Create Account</h1>
+                                <p class="text-gray-600">Join us and start your floral journey</p>
+                            </div>
+
+                            <form id="registerForm" class="space-y-5">
+                                <div class="grid md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="firstName" class="block text-gray-700 font-semibold mb-2 text-sm">
+                                            <i class="fas fa-user text-indigo-500 mr-2"></i>First Name
+                                        </label>
+                                        <input type="text" id="firstName" name="firstName" required
+                                            placeholder="John"
+                                            class="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition bg-gray-50 hover:bg-white">
+                                    </div>
+                                    <div>
+                                        <label for="lastName" class="block text-gray-700 font-semibold mb-2 text-sm">
+                                            <i class="fas fa-user text-indigo-500 mr-2"></i>Last Name
+                                        </label>
+                                        <input type="text" id="lastName" name="lastName" required
+                                            placeholder="Doe"
+                                            class="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition bg-gray-50 hover:bg-white">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-semibold mb-2 text-sm">
+                                        <i class="fas fa-envelope text-indigo-500 mr-2"></i>Email Address
+                                    </label>
+                                    <input type="email" id="email" name="email" required
+                                        placeholder="your.email@example.com"
+                                        class="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition bg-gray-50 hover:bg-white">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-semibold mb-2 text-sm">
+                                        <i class="fas fa-phone text-indigo-500 mr-2"></i>Phone Number
+                                    </label>
+                                    <input type="tel" id="phone" name="phone"
+                                        placeholder="(123) 456-7890"
+                                        class="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition bg-gray-50 hover:bg-white">
+                                </div>
+
+                                <div>
+                                    <label for="password" class="block text-gray-700 font-semibold mb-2 text-sm">
+                                        <i class="fas fa-lock text-indigo-500 mr-2"></i>Password
+                                    </label>
+                                    <div class="relative">
+                                        <input type="password" id="password" name="password" required
+                                            placeholder="Create a strong password"
+                                            class="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition bg-gray-50 hover:bg-white pr-12">
+                                        <button type="button" id="togglePassword" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-500 transition">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Must be at least 8 characters</p>
+                                </div>
+
+                                <div>
+                                    <label for="confirmPassword" class="block text-gray-700 font-semibold mb-2 text-sm">
+                                        <i class="fas fa-lock text-indigo-500 mr-2"></i>Confirm Password
+                                    </label>
+                                    <div class="relative">
+                                        <input type="password" id="confirmPassword" name="confirmPassword" required
+                                            placeholder="Confirm your password"
+                                            class="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition bg-gray-50 hover:bg-white pr-12">
+                                        <button type="button" id="toggleConfirmPassword" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-indigo-500 transition">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="terms" name="terms" required
+                                        class="w-4 h-4 text-indigo-500 border-gray-300 rounded focus:ring-indigo-500 mt-1">
+                                    <label for="terms" class="ml-2 text-sm text-gray-600">
+                                        I agree to the 
+                                        <a href="#" class="text-indigo-600 hover:text-purple-600 font-semibold">Terms & Conditions</a>
+                                        and 
+                                        <a href="#" class="text-indigo-600 hover:text-purple-600 font-semibold">Privacy Policy</a>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="newsletter" name="newsletter"
+                                        class="w-4 h-4 text-indigo-500 border-gray-300 rounded focus:ring-indigo-500 mt-1">
+                                    <label for="newsletter" class="ml-2 text-sm text-gray-600">
+                                        Subscribe to our newsletter for special offers and updates
+                                    </label>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full px-6 py-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 transform">
+                                    <i class="fas fa-user-plus mr-2"></i>Create Account
+                                </button>
+
+                                <div class="relative my-6">
+                                    <div class="absolute inset-0 flex items-center">
+                                        <div class="w-full border-t border-gray-200"></div>
+                                    </div>
+                                    <div class="relative flex justify-center text-sm">
+                                        <span class="px-4 bg-white text-gray-500">Or sign up with</span>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-4">
+                                    <button type="button" class="px-4 py-3 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition flex items-center justify-center">
+                                        <i class="fab fa-google text-xl text-red-500"></i>
+                                    </button>
+                                    <button type="button" class="px-4 py-3 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition flex items-center justify-center">
+                                        <i class="fab fa-facebook text-xl text-blue-600"></i>
+                                    </button>
+                                    <button type="button" class="px-4 py-3 border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition flex items-center justify-center">
+                                        <i class="fab fa-apple text-xl text-gray-800"></i>
+                                    </button>
+                                </div>
+
+                                <div class="text-center pt-4">
+                                    <p class="text-gray-600">
+                                        Already have an account?
+                                        <a href="login.html" class="text-indigo-600 hover:text-purple-600 font-semibold transition">
+                                            Sign In
+                                        </a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Benefits/Illustration -->
+                <div class="hidden md:block order-1 md:order-2 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-pink-400/20 rounded-3xl transform -rotate-6"></div>
+                    <div class="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl">
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                                <i class="fas fa-seedling text-6xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our Community!</h2>
+                            <p class="text-gray-600 mb-8">Create an account and enjoy exclusive benefits</p>
+                            <div class="space-y-5 text-left">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-gift text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 mb-1">Exclusive Offers</h3>
+                                        <p class="text-sm text-gray-600">Get special discounts and early access to new collections</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-heart text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 mb-1">Wishlist & Favorites</h3>
+                                        <p class="text-sm text-gray-600">Save your favorite flowers for later</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-shipping-fast text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 mb-1">Fast Checkout</h3>
+                                        <p class="text-sm text-gray-600">Save your details for quicker purchases</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-history text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 mb-1">Order History</h3>
+                                        <p class="text-sm text-gray-600">Track all your past orders in one place</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword')?.addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Toggle confirm password visibility
+        document.getElementById('toggleConfirmPassword')?.addEventListener('click', function() {
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const icon = this.querySelector('i');
+            
+            if (confirmPasswordInput.type === 'password') {
+                confirmPasswordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                confirmPasswordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Register form handler
+        document.getElementById('registerForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long!');
+                return;
+            }
+            
+            // Handle registration logic here
+            alert('Registration functionality would be implemented here!');
+        });
+    </script>
+</body>
+</html>
+
